@@ -5,18 +5,15 @@
    Type: Tomorrow (display) / JetBrains Mono (schematic labels) / Inter (body)
    ============================================================ */
 
+/* NOTE: only a single (Regular) weight of Tomorrow is bundled, so we
+   declare one @font-face at 400. Any place that requests font-weight:700
+   for this family will be browser-synthesized bold rather than a real
+   bold cut. If a true bold file becomes available, add a second
+   @font-face at font-weight:700 pointing to it. */
 @font-face {
     font-family: 'Tomorrow';
     src: url('fonts/Tomorrow-Regular.ttf') format('truetype');
     font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Tomorrow';
-    src: url('fonts/Tomorrow-Regular.ttf') format('truetype');
-    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
@@ -28,7 +25,7 @@
     --surface-2: #141b26;
     --border: #212b39;
     --text: #e8edf3;
-    --text-muted: #7d8ba0;
+    --text-muted: #93a1b8; /* bumped from #7d8ba0 for WCAG AA contrast on --bg at small sizes */
     --cyan: #00d9d3;
     --cyan-dim: #0a3a3c;
     --amber: #ffb020;
@@ -414,6 +411,43 @@ section {
     font-size: 0.92em;
     color: var(--text-muted);
 }
+
+/* ---------- Hardware / BOM table ---------- */
+.bom-table-wrap {
+    margin-top: 1.4em;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+}
+
+.bom-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92em;
+}
+
+.bom-table th,
+.bom-table td {
+    text-align: left;
+    padding: 0.85em 1.1em;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.bom-table th {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    letter-spacing: 0.04em;
+    color: var(--amber);
+    background: var(--surface);
+    text-transform: uppercase;
+}
+
+.bom-table td {
+    color: #c3cbd6;
+    background: var(--surface-2);
+}
+
+.bom-table tr:last-child td { border-bottom: none; }
 
 /* ---------- Journey / roadmap ---------- */
 .phase-track {
