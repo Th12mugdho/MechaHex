@@ -5,7 +5,22 @@
     <link rel="shortcut icon" type="image/png" href="images/software-agent.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MechaHex — a six-legged hexapod robot project exploring servo control, live video streaming, and sensor integration.">
+    <link rel="canonical" href="https://electro121.github.io/Hexapod/">
     <title>MechaHex — Hexapod Robotics Project</title>
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MechaHex — Hexapod Robotics Project">
+    <meta property="og:description" content="A six-legged hexapod robot exploring servo control, live video streaming, and sensor integration.">
+    <meta property="og:image" content="https://i.postimg.cc/LXG4sspR/BOT.jpg">
+    <meta property="og:url" content="https://electro121.github.io/Hexapod/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MechaHex — Hexapod Robotics Project">
+    <meta name="twitter:description" content="A six-legged hexapod robot exploring servo control, live video streaming, and sensor integration.">
+    <meta name="twitter:image" content="https://i.postimg.cc/LXG4sspR/BOT.jpg">
+
     <link rel="stylesheet" href="Hex.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +38,7 @@
 </head>
 <body>
     <!-- Sidebar Toggle Button -->
-    <button id="menu-toggle" onclick="toggleSidebar()" aria-label="Open menu">☰</button>
+    <button id="menu-toggle" onclick="toggleSidebar()" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">☰</button>
 
     <!-- Sidebar Navigation -->
     <div id="sidebar">
@@ -32,6 +47,7 @@
             <li><a href="#home" onclick="toggleSidebar()">Home</a></li>
             <li><a href="#about" onclick="toggleSidebar()">About</a></li>
             <li><a href="#features" onclick="toggleSidebar()">Features</a></li>
+            <li><a href="#hardware" onclick="toggleSidebar()">Hardware</a></li>
             <li><a href="#journey" onclick="toggleSidebar()">Journey</a></li>
             <li><a href="#code" onclick="toggleSidebar()">Code Repository</a></li>
             <li><a href="#media" onclick="toggleSidebar()">Gallery</a></li>
@@ -48,6 +64,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#features">Features</a></li>
+            <li><a href="#hardware">Hardware</a></li>
             <li><a href="#journey">Journey</a></li>
             <li><a href="#code">Repository</a></li>
             <li><a href="#media">Gallery</a></li>
@@ -108,6 +125,59 @@
                 <p>DHT11 and MQ2 modules track temperature, humidity, and air quality.</p>
             </div>
         </div>
+    </section>
+
+    <!-- Hardware / Bill of Materials Section -->
+    <section id="hardware" class="reveal">
+        <span class="eyebrow">HARDWARE</span>
+        <h2>Bill of Materials</h2>
+        <p>Core components used in the current build. See the repository for full wiring diagrams and part
+            sourcing notes.</p>
+        <div class="bom-table-wrap">
+            <table class="bom-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Component</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Qty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Servo motors</td>
+                        <td>Leg joint &amp; camera gimbal actuation</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Microcontroller</td>
+                        <td>Gait &amp; sensor logic</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Onboard camera</td>
+                        <td>Live first-person video feed</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>DHT11 sensor</td>
+                        <td>Temperature &amp; humidity sensing</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>MQ2 sensor</td>
+                        <td>Air quality / gas sensing</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Battery pack</td>
+                        <td>Onboard power</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="margin-top: 1em; font-size: 0.9em;"><em>Component list is a summary — check the GitHub repo's
+            build notes for exact part numbers, wiring diagrams, and sourcing links.</em></p>
     </section>
 
     <!-- Project Journey Section -->
@@ -211,9 +281,7 @@
                     <a href="https://www.linkedin.com/in/ziya-mohammad-sayef-ullah-895a0b274/" target="_blank" rel="noopener" aria-label="Ziya on LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="#" target="_blank" rel="noopener" aria-label="Ziya on GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
+                    <!-- GitHub link removed: no confirmed profile URL yet. Add one back in when available. -->
                 </div>
             </div>
             <div class="team-member">
@@ -230,9 +298,7 @@
                     <a href="https://www.linkedin.com/in/tasneemulhassan12/" target="_blank" rel="noopener" aria-label="Tasneemul on LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="#" target="_blank" rel="noopener" aria-label="Tasneemul on GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
+                    <!-- GitHub link removed: no confirmed profile URL yet. Add one back in when available. -->
                 </div>
             </div>
         </div>
@@ -252,12 +318,23 @@
             sidebar.classList.toggle("active");
             overlay.classList.toggle("active");
 
-            if (sidebar.classList.contains("active")) {
+            const isOpen = sidebar.classList.contains("active");
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+            if (isOpen) {
                 menuToggle.style.display = "none";
+                document.getElementById("close-btn").focus();
             } else {
                 menuToggle.style.display = "block";
             }
         }
+
+        // Close sidebar with Escape key
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && document.getElementById("sidebar").classList.contains("active")) {
+                toggleSidebar();
+            }
+        });
 
         // Reveal sections on scroll
         const revealEls = document.querySelectorAll('.reveal');
