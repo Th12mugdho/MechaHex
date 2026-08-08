@@ -2,31 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="images/software-agent.png">
+    <link rel="shortcut icon" type="image/png" href="images/software-agent.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hexapod Project</title>
+    <meta name="description" content="MechaHex — a six-legged hexapod robot project exploring servo control, live video streaming, and sensor integration.">
+    <title>MechaHex — Hexapod Robotics Project</title>
     <link rel="stylesheet" href="Hex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Google tag (gtag.js)   -->
+
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8N9Y7VPRE"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-E8N9Y7VPRE');
     </script>
-
 </head>
 <body>
     <!-- Sidebar Toggle Button -->
-    <button id="menu-toggle" onclick="toggleSidebar()">☰</button>
-    
+    <button id="menu-toggle" onclick="toggleSidebar()" aria-label="Open menu">☰</button>
+
     <!-- Sidebar Navigation -->
     <div id="sidebar">
-        <!-- Close Button in Sidebar -->
-        <button id="close-btn" onclick="toggleSidebar()">✖</button>
+        <button id="close-btn" onclick="toggleSidebar()" aria-label="Close menu">✖</button>
         <ul>
             <li><a href="#home" onclick="toggleSidebar()">Home</a></li>
             <li><a href="#about" onclick="toggleSidebar()">About</a></li>
@@ -35,12 +36,12 @@
             <li><a href="#code" onclick="toggleSidebar()">Code Repository</a></li>
             <li><a href="#media" onclick="toggleSidebar()">Gallery</a></li>
             <li><a href="#future-plans" onclick="toggleSidebar()">Future Plans</a></li>
+            <li><a href="#team" onclick="toggleSidebar()">Team</a></li>
         </ul>
     </div>
-    
-    <!-- Overlay to Close Sidebar When Clicked Outside -->
+
     <div id="overlay" onclick="toggleSidebar()"></div>
-    
+
     <!-- Navigation Bar -->
     <nav>
         <ul>
@@ -48,138 +49,190 @@
             <li><a href="#about">About</a></li>
             <li><a href="#features">Features</a></li>
             <li><a href="#journey">Journey</a></li>
-            <li><a href="#code">Code Repository</a></li>
+            <li><a href="#code">Repository</a></li>
             <li><a href="#media">Gallery</a></li>
             <li><a href="#future-plans">Future Plans</a></li>
+            <li><a href="#team">Team</a></li>
         </ul>
     </nav>
-    <!-- Header Section -->
+
+    <!-- Header / Hero -->
     <header id="home">
+        <span class="hud-tl" aria-hidden="true"></span>
+        <span class="hud-tr" aria-hidden="true"></span>
+        <span class="hud-bl" aria-hidden="true"></span>
+        <span class="hud-br" aria-hidden="true"></span>
+        <p class="hero-eyebrow"><span>UNIT/</span>MECHAHEX-01</p>
         <h1>Mecha</h1>
         <h2>Hex</h2>
-        <p>A journey into Robotics and Engineering</p>
+        <p>A journey into robotics and engineering</p>
+        <div class="scroll-cue">SCROLL</div>
     </header>
 
     <!-- About Section -->
-    <section id="about">
-        <h2>About our Project</h2>
-        <p>Welcome to our Hexapod Robot Project! Inspired by the agile movement of insects,
-             this six-legged robot is engineered for stability and adaptability on various terrains. 
-             Building it has been an exciting journey, letting us dive into areas like servo control, real-time video streaming, 
-             and sensor integration. Equipped with a live-feed camera and environmental sensors, our hexapod serves as both a 
-             research platform and a showcase of modern robotics. 
-             <br><br>This project is always evolving, blending technology, creativity, and problem-solving. 
-             It’s more than just a machine—it’s a leap toward the future of robotics.</p>
-            <br>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/S6IN6HmjT4M" frameborder="0" allowfullscreen></iframe>
-            </div>
+    <section id="about" class="reveal">
+        <span class="eyebrow">ABOUT</span>
+        <h2>About the Project</h2>
+        <p>Welcome to our Hexapod Robot Project! Inspired by the agile movement of insects, this six-legged robot
+            is engineered for stability and adaptability on various terrains. Building it has been an exciting
+            journey, letting us dive into areas like servo control, real-time video streaming, and sensor
+            integration. Equipped with a live-feed camera and environmental sensors, our hexapod serves as both a
+            research platform and a showcase of modern robotics.</p>
+        <br>
+        <p>This project is always evolving, blending technology, creativity, and problem-solving. It's more than
+            just a machine — it's a leap toward the future of robotics.</p>
+        <br>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/S6IN6HmjT4M" title="MechaHex project overview" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features">
-        <h2>Features</h2>
-        <ul>
-            <li>20 Servo Motors for Leg and Camera Movement</li>
-            <li>Live Video Streaming</li>
-            <li>Environmental Sensors (DHT11 & MQ2)</li>
-        </ul>
+    <section id="features" class="reveal">
+        <span class="eyebrow">FEATURES</span>
+        <h2>Spec Sheet</h2>
+        <div class="spec-grid">
+            <div class="spec-item">
+                <span class="spec-num">01</span>
+                <h3>20&times; Servo Motors</h3>
+                <p>Drive leg articulation and camera gimbal for full range of motion.</p>
+            </div>
+            <div class="spec-item">
+                <span class="spec-num">02</span>
+                <h3>Live Video Streaming</h3>
+                <p>Real-time first-person feed from an onboard camera.</p>
+            </div>
+            <div class="spec-item">
+                <span class="spec-num">03</span>
+                <h3>Environmental Sensors</h3>
+                <p>DHT11 and MQ2 modules track temperature, humidity, and air quality.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Project Journey Section -->
-    <section id="journey">
+    <section id="journey" class="reveal">
+        <span class="eyebrow">JOURNEY</span>
         <h2>Project Goal</h2>
-        <p>Our goal is to create a semi-autonomous robot that navigates and adapts to its environment, 
-            with future applications in exploration, search and rescue, and remote inspections. In the near term, 
-            we’re focusing on refining its walking and turning, enhancing video streaming, and improving sensor accuracy.
-            <br><br>
-            Looking forward, we plan to integrate AI for facial and object recognition, allowing the hexapod to recognize and 
-            interact with its surroundings. This will transform it from a research tool into an autonomous explorer, capable of 
-            assisting in hands-free, real-world applications.
-            </p>
+        <p>Our goal is to create a semi-autonomous robot that navigates and adapts to its environment, with future
+            applications in exploration, search and rescue, and remote inspections.</p>
+        <div class="phase-track">
+            <div class="phase">
+                <span class="phase-label">NEAR TERM</span>
+                <h3>Refine core locomotion</h3>
+                <p>Improving walking and turning gaits, enhancing the video stream, and tightening sensor
+                    accuracy.</p>
+            </div>
+            <div class="phase">
+                <span class="phase-label">LONG TERM</span>
+                <h3>Autonomous perception</h3>
+                <p>Integrating AI for facial and object recognition, transforming the hexapod from a research tool
+                    into an autonomous explorer capable of assisting in hands-free, real-world applications.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Code Repository Section -->
-    <section id="code">
+    <section id="code" class="reveal">
+        <span class="eyebrow">REPOSITORY</span>
         <h2>Code Repository</h2>
-        <a href="https://github.com/Electro121/Hexapod">View on GitHub</a>
+        <div class="repo-card">
+            <div class="repo-meta">
+                <i class="fab fa-github" aria-hidden="true"></i>
+                <div>
+                    <div class="repo-name">Electro121 / Hexapod</div>
+                    <div class="repo-sub">Firmware, control logic, and build notes</div>
+                </div>
+            </div>
+            <a class="btn" href="https://github.com/Electro121/Hexapod" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
     </section>
 
     <!-- Media Section -->
-    <section id="media">
+    <section id="media" class="reveal">
+        <span class="eyebrow">GALLERY</span>
         <h2>Gallery</h2>
         <p>Photos and videos of the hexapod in action.</p>
         <br>
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/7pWN_-L_7Zs" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/7pWN_-L_7Zs" title="MechaHex in action" frameborder="0" allowfullscreen loading="lazy"></iframe>
         </div>
     </section>
-    
 
     <!-- Future Plans Section -->
-    <section id="future-plans">
+    <section id="future-plans" class="reveal">
+        <span class="eyebrow">ROADMAP</span>
         <h2>Future Plans</h2>
-        <ul>
+        <ul class="build-log">
             <li>Implementing ROS2 with Raspberry Pi</li>
-            <li>Adding additional sensors with LIDER and GPS for better navigation and mapping</li>
+            <li>Adding LIDAR and GPS for better navigation and mapping</li>
             <li>Implementing AI-based pathfinding and obstacle avoidance</li>
-            <li>Utilizing mesh networking for an extended range in large disaster areas</li>
+            <li>Utilizing mesh networking for extended range in large disaster areas</li>
             <li>Coordinating multiple robots for comprehensive area coverage</li>
         </ul>
     </section>
 
-
     <!-- Team Section -->
-    <section id="team">
-        <h2>Our Team Members</h2>
-        <p>The creators behind MechaHex</p>
+    <section id="team" class="reveal">
+        <span class="eyebrow">TEAM</span>
+        <h2>Our Team</h2>
+        <p class="team-sub">The creators behind MechaHex</p>
         <div class="team-grid">
             <div class="team-member">
-                <img src="images/Zuhayer.jpg" alt="Zuhayer Mahtab">
+                <div class="hex-frame">
+                    <img src="https://i.postimg.cc/bvsj2jL9/Zuhayer.jpg" alt="Zuhayer Mahtab">
+                </div>
+                <span class="unit-tag">UNIT 01</span>
                 <h3>Zuhayer Mahtab</h3>
-                <p>Software and Electronics Lead</p>
+                <p class="role">Software and Electronics Lead</p>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/profile.php?id=100035781556739" target="_blank">
+                    <a href="https://www.facebook.com/profile.php?id=100035781556739" target="_blank" rel="noopener" aria-label="Zuhayer on Facebook">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/zuhayer-mahtab-aa1973254/" target="_blank">
+                    <a href="https://www.linkedin.com/in/zuhayer-mahtab-aa1973254/" target="_blank" rel="noopener" aria-label="Zuhayer on LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/Electro121" target="_blank">
+                    <a href="https://github.com/Electro121" target="_blank" rel="noopener" aria-label="Zuhayer on GitHub">
                         <i class="fab fa-github"></i>
-                    </a>     
+                    </a>
                 </div>
             </div>
             <div class="team-member">
-                <img src="images/Ziya.jpg" alt="Ziya Mohammad Sayef Ullah">
+                <div class="hex-frame">
+                    <img src="https://i.postimg.cc/WzRjvfGq/Ziya.jpg" alt="Ziya Mohammad Sayef Ullah">
+                </div>
+                <span class="unit-tag">UNIT 02</span>
                 <h3>Ziya Mohammad Sayef Ullah</h3>
-                <p>Mechanical & Design Lead</p>
+                <p class="role">Mechanical &amp; Design Lead</p>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/rip.van.581" target="_blank">
+                    <a href="https://www.facebook.com/rip.van.581" target="_blank" rel="noopener" aria-label="Ziya on Facebook">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/ziya-mohammad-sayef-ullah-895a0b274/?fbclid=IwY2xjawIR3OtleHRuA2FlbQIxMAABHaVkaDVxBLnnIPyHLOxlhvEkuUQyZDi06HPqo5zxXSo8nOYV8EZk5C5eHQ_aem_gArY5jIMzzDLyTFXZ_jDfQ" target="_blank">
+                    <a href="https://www.linkedin.com/in/ziya-mohammad-sayef-ullah-895a0b274/" target="_blank" rel="noopener" aria-label="Ziya on LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="#" target="_blank" rel="noopener" aria-label="Ziya on GitHub">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
             </div>
             <div class="team-member">
-                <img src="images/Mughdo.jpeg" alt="Md. Tasneemul Hassan">
+                <div class="hex-frame">
+                    <img src="https://i.postimg.cc/qvpJqY98/Mughdo.jpg" alt="Md. Tasneemul Hassan">
+                </div>
+                <span class="unit-tag">UNIT 03</span>
                 <h3>Md. Tasneemul Hassan</h3>
-                <p>Editorial & Publications Lead</p>
+                <p class="role">Editorial &amp; Publications Lead</p>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/tasneemulhassan12" target="_blank">
+                    <a href="https://www.facebook.com/tasneemulhassan12" target="_blank" rel="noopener" aria-label="Tasneemul on Facebook">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/tasneemulhassan12/" target="_blank">
+                    <a href="https://www.linkedin.com/in/tasneemulhassan12/" target="_blank" rel="noopener" aria-label="Tasneemul on LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="#" target="_blank" rel="noopener" aria-label="Tasneemul on GitHub">
                         <i class="fab fa-github"></i>
-                    </a>          
+                    </a>
                 </div>
             </div>
         </div>
@@ -187,24 +240,57 @@
 
     <!-- Footer Section -->
     <footer>
-        <!--<p>&copy; MechaHex. All rights reserved.</p>-->
         <p>Contact me on <a href="https://www.linkedin.com/in/zuhayer-mahtab-aa1973254/">LinkedIn</a> or <a href="https://github.com/Electro121">GitHub</a></p>
     </footer>
+
     <script>
         function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("overlay");
-        const menuToggle = document.getElementById("menu-toggle");
+            const sidebar = document.getElementById("sidebar");
+            const overlay = document.getElementById("overlay");
+            const menuToggle = document.getElementById("menu-toggle");
 
-        sidebar.classList.toggle("active");
-        overlay.classList.toggle("active");
+            sidebar.classList.toggle("active");
+            overlay.classList.toggle("active");
 
-        // Hide the sidebar icon when sidebar is active
-        if (sidebar.classList.contains("active")) {
-            menuToggle.style.display = "none";
+            if (sidebar.classList.contains("active")) {
+                menuToggle.style.display = "none";
+            } else {
+                menuToggle.style.display = "block";
+            }
+        }
+
+        // Reveal sections on scroll
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach(el => observer.observe(el));
         } else {
-            menuToggle.style.display = "block";
-         }
+            revealEls.forEach(el => el.classList.add('is-visible'));
+        }
+
+        // Highlight active nav link on scroll
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const sections = document.querySelectorAll('section, header');
+        if ('IntersectionObserver' in window) {
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const link = document.querySelector(`nav ul li a[href="#${id}"]`);
+                    if (!link) return;
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(l => l.classList.remove('is-active'));
+                        link.classList.add('is-active');
+                    }
+                });
+            }, { threshold: 0.5 });
+            sections.forEach(sec => navObserver.observe(sec));
         }
     </script>
 </body>
