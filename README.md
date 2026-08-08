@@ -1,0 +1,3 @@
+Welcome to my Hexapod Robot Project! Inspired by the agile movement of insects, this six-legged robot is engineered for stability and adaptability on various terrains. Building it has been an exciting journey, letting us dive into areas like servo control, real-time video streaming, and sensor integration. Equipped with a live-feed camera and environmental sensors, our hexapod serves as both a research platform and a showcase of modern robotics.
+
+This project is always evolving, blending technology, creativity, and problem-solving. It’s more than just a machine—it’s a leap toward the future of robotics.
